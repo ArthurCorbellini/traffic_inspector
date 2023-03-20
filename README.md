@@ -1,16 +1,15 @@
 # traffic_inspector
 
-A new Flutter project.
+Documentação: https://docs.google.com/document/d/1I0x4hNTB0rfrG9ysqUbnvZKnOecQkc-8FXVlXs4aPDc/edit?usp=sharing
 
-## Getting Started
+## Setup inicial:
 
-This project is a starting point for a Flutter application.
+Seguir as instruções do vídeo abaixo para criar o setup do flutter no VS Code;
+https://www.youtube.com/watch?v=ZSWfgxrxN0M&ab_channel=HarsivoEdu
 
-A few resources to get you started if this is your first Flutter project:
+Após ter o setup configurado, seguir os seguntes passos para rodar o projeto localmente:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- git clone do repositório;
+- no terminal, na pasta raiz do projeto, rodar o comando "flutter pub get" para baixar as dependências necessárias;
+- rodar o emulador Android pelo VS Code;
+- com o emulador rodando, no terminal, rodar o comando "flutter run" (será demorado na primeira vez);
