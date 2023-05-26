@@ -1,11 +1,10 @@
-class Evidence {
-  const Evidence({
-    required this.id,
-    required this.author,
-    required this.description,
-  });
+import 'package:uuid/uuid.dart';
 
-  final int id;
-  final String author;
-  final String description;
+const uuid = Uuid();
+
+class Evidence {
+  Evidence({required this.title}) : id = uuid.v4();
+
+  final String id;
+  final String title;
 }
