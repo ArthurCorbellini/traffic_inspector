@@ -1,7 +1,9 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:traffic_inspector/providers/user_evidences_provider.dart';
+import 'package:traffic_inspector/widgets/image_input_widget.dart';
 
 class EvidencesAddScreen extends ConsumerStatefulWidget {
   const EvidencesAddScreen({super.key});
@@ -14,13 +16,16 @@ class EvidencesAddScreen extends ConsumerStatefulWidget {
 
 class _EvidencesAddScreenState extends ConsumerState<EvidencesAddScreen> {
   final _titleController = TextEditingController();
+  File? _selectedImage;
 
   void _saveEvidence() {
     final title = _titleController.text;
 
-    if (title.isEmpty) return;
+    if (title.isEmpty || _selectedImage == null) return;
 
-    ref.read(userEvidencesProvider.notifier).addEvidence(title);
+    ref
+        .read(userEvidencesProvider.notifier)
+        .addEvidence(title, _selectedImage!);
     Navigator.of(context).pop();
   }
 
@@ -47,9 +52,11 @@ class _EvidencesAddScreenState extends ConsumerState<EvidencesAddScreen> {
               ),
               controller: _titleController,
             ),
-            const SizedBox(
-              height: 16,
-            ),
+            const SizedBox(height: 16),
+            ImageInput(onPickImage: (image) {
+              _selectedImage = image;
+            }),
+            const SizedBox(height: 16),
             ElevatedButton.icon(
               icon: const Icon(Icons.add),
               label: const Text('Postar'),

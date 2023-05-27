@@ -13,14 +13,15 @@ class EvidencesDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(evidence.title),
       ),
-      body: Center(
-        child: Text(
-          evidence.title,
-          style: Theme.of(context)
-              .textTheme
-              .bodyLarge!
-              .copyWith(color: Theme.of(context).colorScheme.onBackground),
-        ),
+      body: Stack(
+        children: [
+          Image.file(
+            evidence.image,
+            fit: BoxFit.cover,
+            width: double.infinity,
+            height: double.infinity,
+          ),
+        ],
       ),
     );
   }

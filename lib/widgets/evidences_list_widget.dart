@@ -25,6 +25,10 @@ class EvidencesListWidget extends StatelessWidget {
     return ListView.builder(
       itemCount: evidences.length,
       itemBuilder: (ctx, index) => ListTile(
+        leading: CircleAvatar(
+          backgroundImage: FileImage(evidences[index].image),
+          radius: 26,
+        ),
         title: Text(
           evidences[index].title,
           style: Theme.of(context)

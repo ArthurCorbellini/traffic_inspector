@@ -28,8 +28,11 @@ class EvidencesListScreen extends ConsumerWidget {
           ),
         ],
       ),
-      body: EvidencesListWidget(
-        evidences: userEvidences,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: EvidencesListWidget(
+          evidences: userEvidences,
+        ),
       ),
     );
   }
