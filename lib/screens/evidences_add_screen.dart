@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'package:traffic_inspector/providers/user_evidences_provider.dart';
 import 'package:traffic_inspector/widgets/image_input_widget.dart';
+import 'package:traffic_inspector/widgets/location_input_widget.dart';
 
 class EvidencesAddScreen extends ConsumerStatefulWidget {
   const EvidencesAddScreen({super.key});
@@ -56,6 +57,8 @@ class _EvidencesAddScreenState extends ConsumerState<EvidencesAddScreen> {
             ImageInput(onPickImage: (image) {
               _selectedImage = image;
             }),
+            const SizedBox(height: 16),
+            LocationInputWidget(),
             const SizedBox(height: 16),
             ElevatedButton.icon(
               icon: const Icon(Icons.add),
