@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:traffic_inspector/models/evidence.dart';
 import 'package:traffic_inspector/providers/user_evidences_provider.dart';
 import 'package:traffic_inspector/widgets/image_input_widget.dart';
 import 'package:traffic_inspector/widgets/location_input_widget.dart';
@@ -18,15 +18,19 @@ class EvidencesAddScreen extends ConsumerStatefulWidget {
 class _EvidencesAddScreenState extends ConsumerState<EvidencesAddScreen> {
   final _titleController = TextEditingController();
   File? _selectedImage;
+  EvidenceLocation? _selectedLocation;
 
   void _saveEvidence() {
     final title = _titleController.text;
 
-    if (title.isEmpty || _selectedImage == null) return;
+    if (title.isEmpty || _selectedImage == null || _selectedLocation == null) {
+      return;
+    }
 
     ref
         .read(userEvidencesProvider.notifier)
-        .addEvidence(title, _selectedImage!);
+        .addEvidence(title, _selectedImage!, _selectedLocation!);
+
     Navigator.of(context).pop();
   }
 
@@ -58,7 +62,9 @@ class _EvidencesAddScreenState extends ConsumerState<EvidencesAddScreen> {
               _selectedImage = image;
             }),
             const SizedBox(height: 16),
-            LocationInputWidget(),
+            LocationInputWidget(onSelectLocation: (location) {
+              _selectedLocation = location;
+            }),
             const SizedBox(height: 16),
             ElevatedButton.icon(
               icon: const Icon(Icons.add),
