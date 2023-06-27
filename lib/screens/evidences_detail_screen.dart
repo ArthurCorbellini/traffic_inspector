@@ -11,7 +11,7 @@ class EvidencesDetailScreen extends StatelessWidget {
     final lat = evidence.location.latitude;
     final lng = evidence.location.longitude;
 
-    String apiKey = Enviroment.googleMapsApyKey;
+    const String apiKey = Enviroment.googleMapsApiKey;
 
     return 'https://maps.googleapis.com/maps/api/staticmap?center=$lat,$lng&zoom=16&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:A%7C$lat,$lng&key=$apiKey';
   }

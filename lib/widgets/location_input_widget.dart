@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import 'package:traffic_inspector/configs/enviroment.dart';
 import 'package:traffic_inspector/models/evidence.dart';
 
-String apiKey = Enviroment.googleMapsApyKey;
+const String apiKey = Enviroment.googleMapsApiKey;
 
 class LocationInputWidget extends StatefulWidget {
   const LocationInputWidget({super.key, required this.onSelectLocation});
