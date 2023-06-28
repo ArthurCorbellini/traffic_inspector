@@ -1,0 +1,5 @@
+{
+    "APP_LABEL": "traffic_inspector",
+    "APP_SUFFIX": ".dev",
+    "GOOGLE_MAPS_API_KEY": "YOUR GOOGLE MAPS API KEY"
+}
