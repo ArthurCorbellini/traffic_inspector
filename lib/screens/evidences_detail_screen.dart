@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:traffic_inspector/configs/enviroment.dart';
 import 'package:traffic_inspector/models/evidence.dart';
+import 'package:traffic_inspector/screens/map_screen.dart';
 
 class EvidencesDetailScreen extends StatelessWidget {
   const EvidencesDetailScreen({super.key, required this.evidence});
@@ -36,9 +37,21 @@ class EvidencesDetailScreen extends StatelessWidget {
             right: 0,
             child: Column(
               children: [
-                CircleAvatar(
-                  radius: 70,
-                  backgroundImage: NetworkImage(locationImage),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (ctx) => MapScreen(
+                          location: evidence.location,
+                          isSelecting: false,
+                        ),
+                      ),
+                    );
+                  },
+                  child: CircleAvatar(
+                    radius: 70,
+                    backgroundImage: NetworkImage(locationImage),
+                  ),
                 ),
                 Container(
                   alignment: Alignment.center,

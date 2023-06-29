@@ -48,11 +48,12 @@ android {
         applicationIdSuffix APP_SUFFIX
         // You can update the following values to match your application needs.
         // For more information, see: https://docs.flutter.dev/deployment/android#reviewing-the-gradle-build-configuration.
-        minSdkVersion flutter.minSdkVersion
+        minSdkVersion 20
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         resValue "string", "app_label", APP_LABEL
+        resValue "string", "googleMapsApiKey", GOOGLE_MAPS_API_KEY
     }
 
     buildTypes {
